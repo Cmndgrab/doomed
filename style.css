@@ -282,24 +282,6 @@ a.button:focus {
 	outline: 0;
 }
 
-input[type=submit],
-a.button {
-	background: transparent;
-	border: 1px solid #00dd00;
-	clear: both;
-	color: #00dd00;
-	cursor: hand;
-	display: inline-block;
-	font-family: 'fixedsys', Courier;
-	font-size: 1em;
-	margin-bottom: 20px;
-	opacity: 0.25;
-	padding: 10px 100px;
-	position: relative;
-	text-decoration: none;
-	text-transform: uppercase;
-	z-index: 10;
-}
 
 input[type=submit]:hover,
 a.button:hover {
@@ -385,7 +367,7 @@ a.button:hover {
 	text-shadow: 0 0 5px #dd0000;
 	font-family: 'fixedsys';
 	overflow: hidden; /* Ensures the content is not revealed until the animation */
-	/* white-space: nowrap; Keeps the content on a single line */
+	white-space: nowrap; 
 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
 	margin-left: 5px;
 	letter-spacing: .15em; /* Adjust as needed */

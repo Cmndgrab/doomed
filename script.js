@@ -30,23 +30,23 @@ var dungeon = {
   "darkness": {
     short_description: "emptiness",
     long_description:
-      " the dark, you hear screams, nothing but screams, you cant escape and you cant win and you cant breathe, there is a light to the east.",
+      " the dark, you hear screams, nothing but screams, you cant escape and you cant win and you cant breathe",
     contents: [],
     exits: { east: "centre room" }
   },
   "east room": {
     short_description: "east room",
     long_description:
-      "a room full of bodies, you can smell the copper, it fills your nose and you retch, you look to your east and see a table containing some dark trinkers. you see hole narrow enough to crawl through",
+      "a room full of bodies, you can smell the copper, it fills your nose and you retch, you look to your east and see a table containing some dark trinkers. you see a hole narrow enough to crawl through in front of you,",
     contents: [],
-    exits: { east: "centre room" }
+    exits: { east: "centre room", north:"death"}
   },
   "centre room": {
     short_description: "centre room",
     long_description:
       " a windowless chamber lit only by the eerie light of glowing fungi high above. A rope hangs down from a room above. you can hear crying from up there",
     contents: [],
-    exits: { east: "east room", west: "west room", above: "attic room" }
+    exits: { east: "east room", north: "attic room" }
   },
   "attic room": {
     short_description: "attic room",
@@ -54,18 +54,35 @@ var dungeon = {
       "the attic. It looks like it hasn't been entered in years. This place is filled with cobwebs, and a dirty window overlooks the roof, but is painted shut.",
     contents: ["crowbar", "spear"],
     exits: {
-      down: "centre room",
+      south: "centre room",
       east: "closet"
+    }
+  },
+  "death": {
+    short_description: "death",
+    long_description:
+      "As you crawl through the hole, you feel it constrict around you, It begins to squeeze, you can't escape. As your vision goes black you hear laughter.",
+    contents: [],
+    exits: {
+      
     }
   },
   roof: {
     short_description: "roof",
     long_description:
       "the long, sloping roof. There is a gargoyle nearby watching you.",
-    contents: [],
+    contents: ["keycard"],
     exits: {
       east: "attic room",
-      in: "attic room"
+      south: "attic room"
+    }
+  },
+  end: {
+    short_description: "light",
+    long_description:
+      "The mirror looks back at you, and pulls you through, you wake up in your own bed, sweating and shaking. You look at the clock, You fell asleep. That is all it was. Just a dream.",
+    contents: [],
+    exits: {
     }
   },
   closet: {
@@ -79,10 +96,10 @@ var dungeon = {
   lab: {
     short_description: "secret laboratory",
     long_description:
-      "a secret lab filled with bubbling vials and the static discharge of Jacob's ladders and Van de Graff generators",
+      "a secret lab filled with bubbling vials and the static discharge of Jacob's ladders and Van de Graff generators, there is a strange console in the middle of the room, with a slot for a keycard.",
     contents: ["batteries"],
     exits: {
-      up: "closet"
+      north: "closet"
     }
   }
 };
@@ -223,9 +240,13 @@ function use_item(obj) {
     // Modify the exits from the attic
     dungeon["attic room"].exits.out = "roof";
     dungeon["attic room"].exits.west = "roof";
-  }else{
-    print('The ' + item + ' does nothing here.');
   }
+  if (item === "keycard" && character.location === "lab") {
+    print("You insert the keycard, The entire structure begins to hum, and a mirror rises from the floor, Its surface is fluid, and you can hear it calling to you");
+    // Modify the exits from the attic
+    dungeon["lab"].exits.out = "end";
+   
+  } 
 }
 
 function drop_item(obj) {

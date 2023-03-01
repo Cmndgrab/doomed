@@ -11,6 +11,7 @@ function print(text) {
   main.appendChild(p);
   // The player may have scrolled the page, so make sure we scroll to make the new text visible
   p.scrollIntoView();
+  
 }
 
 //
@@ -44,14 +45,14 @@ var dungeon = {
   "centre room": {
     short_description: "centre room",
     long_description:
-      " a windowless chamber lit only by the eerie light of glowing fungi high above. A rope hangs down from a room above. you can hear crying from up there",
-    contents: [],
+      " a windowless chamber lit only by the eerie light of glowing fungi. \n A rope hangs down from a room above. you can hear crying from up there",
+    contents: ["paper"],
     exits: { east: "east room", north: "attic room" }
   },
   "attic room": {
     short_description: "attic room",
     long_description:
-      "the attic. It looks like it hasn't been entered in years. This place is filled with cobwebs, and a dirty window overlooks the roof, but is painted shut.",
+      "the attic. It looks like it hasn't been entered in years. This place is filled with cobwebs, \n and a dirty window overlooks the roof, but is painted shut.",
     contents: ["crowbar", "spear"],
     exits: {
       south: "centre room",
@@ -104,9 +105,9 @@ var dungeon = {
   }
 };
 
-const help = `Try typing a direction, like "east" or "up'. You if you are in a room with items, you can type "take [item]" or even "take all" to pick up everything in the room. To see the long description of a room, including items and exits, type "look." You can type "inventory" to see what you are carrying, "quit" to exit the game, and "help" to see these instructions again.
+const help = `Try typing a direction, like "east" or "up'. If you are in a room with items, you can type "take [item]" or even "take all" to pick up everything in the room, and type "use" with that item to use it. To see the long description of a room, including items and exits, type "look." You can type "inventory" to see what you are carrying, and "help" to see these instructions again.
 
-Many commands also work with abbreviations: "invent" or even "i" work for "inventory". Don't be afraid to try things out to see if they work.
+
 `;
 
 function command_split(str) {
@@ -247,6 +248,13 @@ function use_item(obj) {
     dungeon["lab"].exits.out = "end";
    
   } 
+
+  if (item === "paper") {
+    print("A note hastily written in blood, it says there is a secret door built into a closet, that the door leads out, it could be an escape.");
+    // Modify the exits from the attic
+    
+   
+  } 
 }
 
 function drop_item(obj) {
@@ -319,6 +327,9 @@ function getOneCommand(text) {
   } else if (["drop", "throw", "release"].includes(verb)) {
     drop_item(obj);
   }
+  else if (["help"].includes(verb)) {
+    getHelp();
+  }
 }
 
 function getInput(evt) {
@@ -329,6 +340,12 @@ function getInput(evt) {
   }
 }
 
+function getHelp(){
+  {
+    print(help)
+
+  }
+}
 input.addEventListener("keyup", getInput, false);
 
 

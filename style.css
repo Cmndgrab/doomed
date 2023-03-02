@@ -58,8 +58,6 @@
 	box-sizing: border-box;
 	margin-left: 0 auto;
 	margin-right: 0 auto;
-	cursor: url('./fo4.png'), auto;
-
 
 	}
 	
@@ -75,7 +73,6 @@ body {
 	padding: 0;
 	margin-left: 0 auto;
 	margin-right: 0 auto;
-	cursor: url('./fo4.png'), auto;
 
 }
 
@@ -261,7 +258,8 @@ textarea {
 	color: #f51111;
 	display: block;
 	float: center;
-
+	margin-top: 10px;
+	margin-left: 55px;
 	font-family: 'fixedsys', Courier;
 	font-size: 1em;
 	position: relative;
@@ -323,30 +321,6 @@ a.button:hover {
 .upper { text-transform: uppercase; }
 
 
-
-
-
-
-
-.typewriter h4 {
-	color: #dd4200;
-	text-shadow: 0 0 5px #dd4d00;
-	font-family: 'fixedsys';
-	overflow: hidden; /* Ensures the content is not revealed until the animation */
-	white-space: nowrap;  /*Keeps the content on a single line */
-	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-	margin-left: 5px;
-	
-	
-	letter-spacing: .10em; /* Adjust as needed */
-	animation: 
-	
-	  typing 3.5s steps(30, end),
-	  blink-caret .5s step-end infinite;
-	  
-
-
-  }
   
   /* The typing effect */
   @keyframes typing {
@@ -362,75 +336,48 @@ a.button:hover {
   } */
 
 
-  .typewriter h3 {
-	color: #dd1a00;
-	text-shadow: 0 0 5px #dd0000;
-	font-family: 'fixedsys';
-	overflow: hidden; /* Ensures the content is not revealed until the animation */
-	white-space: nowrap; 
-	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-	margin-left: 5px;
-	letter-spacing: .15em; /* Adjust as needed */
-	animation: 
-	
-	  typing 3.5s steps(30, end),
-	  blink-caret .5s step-end infinite;
-	  
-
-
-  }
-  
-  /* The typing effect */
-  @keyframes typing {
-	from { width: 0 }
-	to { width: 100% }
-  }
-  
-  /* The typewriter cursor effect */
-  /* @keyframes blink-caret {
-	
-	from, to { border-color: transparent }
-	70% { border-color: #00dd00}
-  } */
-
-  
-  .typewriter p {
+  .typewriter p{
 	color: #00dd00;
 	font-family: 'fixedsys';
 	overflow: hidden; /* Ensures the content is not revealed until the animation */
-	white-space: normal; 
 	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-	margin-left: 5px;
-	letter-spacing: .10em; /* Adjust as needed */
-	width: 100%;
-	display: block;
-	position: relative;
+	margin-left: 55px;
+	white-space: nowrap; /* Keeps the content on a single line */
+	width: 90%;
 	animation: 
 	
 	  typing 3.5s steps(30, end),
 	  blink-caret .5s step-end infinite;
-	  
-	  
-
 
   }
   
   /* The typing effect */
   @keyframes typing {
+	from { width: 0% }
+	to { width: 90% }
+  }
+  
+  /* The typewriter cursor effect */
+   @keyframes blink-caret {
+	
+	from, to { border-color: transparent }
+	70% { border-color: #00dd00}
+  }
+
+  
+ 
+  
+  /* The typing effect */
+  /* @keyframes typing {
 	from { width: 0 }
-	to { width: 100% }
-  }
-
-  .restricted p {
-
-	  font-family: 'fixedsys';
-	  font-size: 1.5em;
-	  margin-left: 0 auto;
-	  margin-right: 0 auto;
-	  margin:150px;
-	  margin-bottom: 0 auto;
-
-  }
-
+	to { width: 90% }
+  } */
+/* 
+  The typewriter cursor effect 
+  @keyframes blink-caret {
+	
+	from, to { border-color: transparent }
+	70% { border-color: #00dd00}
+  } */
 
 

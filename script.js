@@ -1,4 +1,3 @@
-
 let main = document.querySelector("main");
 let input = document.querySelector("input");
 
@@ -31,28 +30,28 @@ var dungeon = {
   "darkness": {
     short_description: "emptiness",
     long_description:
-      " the dark, you hear screams, nothing but screams, you cant escape and you cant win and you cant breathe",
+      " the dark, you hear screams, nothing but screams, you can't escape <br />and you can't win and you can't breathe.",
     contents: [],
     exits: { east: "centre room" }
   },
   "east room": {
     short_description: "east room",
     long_description:
-      "a room full of bodies, you can smell the copper, it fills your nose and you retch, you look to your east and see a table containing some dark trinkers. you see a hole narrow enough to crawl through in front of you,",
+      "a room full of bodies, you can smell the copper, <br />it fills your nose and you retch,<br /> you look to your east and see a table containing some dark trinkers.<br /> You see a hole narrow enough to crawl through in front of you,",
     contents: [],
     exits: { east: "centre room", north:"death"}
   },
   "centre room": {
     short_description: "centre room",
     long_description:
-      " a windowless chamber lit only by the eerie light of glowing fungi. \n A rope hangs down from a room above. you can hear crying from up there",
+      " a windowless chamber lit only by the eerie light of glowing fungi.<br /> A rope hangs down from a room above.<br /> You can hear crying from up there",
     contents: ["paper"],
     exits: { east: "east room", north: "attic room" }
   },
   "attic room": {
     short_description: "attic room",
     long_description:
-      "the attic. It looks like it hasn't been entered in years. This place is filled with cobwebs, \n and a dirty window overlooks the roof, but is painted shut.",
+      "the attic. It looks like it hasn't been entered in years.<br /> This place is filled with cobwebs, and a dirty window overlooks the roof,<br /> but is painted shut.",
     contents: ["crowbar", "spear"],
     exits: {
       south: "centre room",
@@ -62,7 +61,7 @@ var dungeon = {
   "death": {
     short_description: "death",
     long_description:
-      "As you crawl through the hole, you feel it constrict around you, It begins to squeeze, you can't escape. As your vision goes black you hear laughter.",
+      "As you crawl through the hole, you feel it constrict around you,<br /> It begins to squeeze, you can't escape.<br /> As your vision goes black you hear laughter.",
     contents: [],
     exits: {
       
@@ -81,7 +80,7 @@ var dungeon = {
   end: {
     short_description: "light",
     long_description:
-      "The mirror looks back at you, and pulls you through, you wake up in your own bed, sweating and shaking. You look at the clock, You fell asleep. That is all it was. Just a dream.",
+      "The mirror looks back at you, and pulls you through, you wake up in your own bed,<br /> sweating and shaking. You look at the clock, You fell asleep.<br /> That is all it was. Just a dream.",
     contents: [],
     exits: {
     }
@@ -97,7 +96,7 @@ var dungeon = {
   lab: {
     short_description: "secret laboratory",
     long_description:
-      "a secret lab filled with bubbling vials and the static discharge of Jacob's ladders and Van de Graff generators, there is a strange console in the middle of the room, with a slot for a keycard.",
+      "a secret lab filled with bubbling vials and the static discharge <br /> of Jacob's ladders and Van de Graff generators,<br /> there is a strange console in the middle of the room,<br /> with a slot for a keycard.",
     contents: ["batteries"],
     exits: {
       north: "closet"
@@ -105,7 +104,7 @@ var dungeon = {
   }
 };
 
-const help = `Try typing a direction, like "east" or "up'. If you are in a room with items, you can type "take [item]" or even "take all" to pick up everything in the room, and type "use" with that item to use it. To see the long description of a room, including items and exits, type "look." You can type "inventory" to see what you are carrying, and "help" to see these instructions again.
+const help = `Try typing a direction, like "east" or "up'.<br /> If you are in a room with items,<br /> you can type "take [item]" or even "take all" <br /> to pick up everything in the room, and type "use" <br />with that item to use it.<br /> To see the long description of a room, including items and exits, type "look." <br />You can type "inventory" to see what you are carrying,<br /> and "help" to see these instructions again.
 
 
 `;
